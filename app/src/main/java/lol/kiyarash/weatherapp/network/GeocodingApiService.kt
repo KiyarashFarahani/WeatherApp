@@ -26,8 +26,6 @@ interface GeocodingApiService {
     ): List<GeocodingResponse>
 
 
-//suspend fun getCityCode(@Path(value = "city") city: String): GeocodingResponse
-
     // https://api.openweathermap.org/geo/1.0/direct?q=Tehran&limit=1&appid=e361b47c26ee00554d31eba0583eebb8
 }
 

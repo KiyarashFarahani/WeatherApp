@@ -81,11 +81,8 @@ class WeatherViewModel : ViewModel() {
                 // Get Weather Data from Weather API
                 weatherResponse = WeatherApi.retrofitService.getWeather(lat, lon, API_KEY, UNITS)
                 val isDay = isDayOrNot(weatherResponse!!.sys.sunrise, weatherResponse!!.sys.sunset)
-                Log.v("tag3", "isDaaaay?   $isDay")
-                //Log.v("tag4", "offset   ${weatherResponse!!.timezone}")
                 _localTime.value = getLocalTime(weatherResponse!!)
                 _timeVisibility.value = true
-                //Log.v("tag4", getLocalTime(weatherResponse!!))
                 when (isDay) {
                     true -> {
                         _backgroundColor.value = R.drawable.day_background
@@ -155,14 +152,10 @@ class WeatherViewModel : ViewModel() {
 
 
             } catch (e: Exception) {
-                //geocode = e.toString()
-                //Log.v("tag3", "GEOCODE:" + geocode.toString())
-                Log.v("tag3", "Exception :   ${e.toString()}")
-
+                Log.v("tag1", "Exception :   $e")
                 _imgSrc.value = R.drawable.emoji
                 _status.value = "Network Disconnected"
                 _progressVisibility.value = false
-
             }
 
 
@@ -173,14 +166,8 @@ class WeatherViewModel : ViewModel() {
 
     private fun getLocalTime(weatherResponse: WeatherResponse): String {
         val offset = weatherResponse.timezone
-        Log.v("OFFSET", offset.toString())
         val localOffset = TimeZone.getDefault().getOffset(System.currentTimeMillis() / 1000) / 1000
-        Log.v("LOCAL_OFFSET", localOffset.toString())
-
-
         val time = (System.currentTimeMillis() / 1000) - localOffset + offset
-        Log.v("TIME+OFFSET", time.toString())
-
 
         return LocalTime.parse(
             Time(time * 1000).toString(),

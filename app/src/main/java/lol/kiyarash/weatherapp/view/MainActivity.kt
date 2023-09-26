@@ -21,8 +21,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //WindowCompat.setDecorFitsSystemWindows(window, false)
-
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.fragment_container_view) as NavHostFragment
         navController = navHostFragment.navController
@@ -30,9 +28,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    //override fun onSupportNavigateUp(): Boolean {
-    //   return navController.navigateUp() || super.onSupportNavigateUp()
-    //}
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }

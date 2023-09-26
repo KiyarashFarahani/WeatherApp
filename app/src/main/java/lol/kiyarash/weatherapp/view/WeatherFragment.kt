@@ -27,15 +27,6 @@ class WeatherFragment : Fragment() {
             city = it.getString("cityName").toString()
         }
 
-
-        /*activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                // in here you can do logic when backPress is clicked
-                navigateToSearchFragment()
-            }
-        })*/
-
-
     }
 
 
@@ -44,18 +35,10 @@ class WeatherFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentWeatherBinding.inflate(inflater, container, false)
-
-        // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
         binding.lifecycleOwner = this
-
-
         viewModel.resetBackground()
         viewModel.getWeatherData(city)
-
-        // Giving the binding access to the OverviewViewModel
         binding.viewModel = viewModel
-        //activity?.window?.statusBarColor = viewModel.statusBarColor.value!!
-
         viewModel.statusBarColor.observe(viewLifecycleOwner) { color ->
             activity?.window?.statusBarColor = resources.getColor(color, activity?.theme)
         }
@@ -84,16 +67,6 @@ class WeatherFragment : Fragment() {
         }
 
         cityButton.text = "City: ${this.city}"
-
-
-        //initialize the values
-        //lastUpdate.text = "Updated Just Now"
-        //statusImageView.setImageResource(R.drawable.partly_day_storm)
-        //temperature.text = "23°C"
-
-
-        //Log.v("tag3", "geo:" + viewModel.geocode.toString())
-        //statusTextView.text = viewModel.geocode.value
 
 
     }

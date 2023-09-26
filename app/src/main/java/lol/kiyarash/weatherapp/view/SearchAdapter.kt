@@ -36,14 +36,10 @@ class SearchAdapter(private val cityData: MutableList<CitiesModel>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = cityData[position].city
         holder.cityTextView.text = data
-
         holder.cityTextView.setOnClickListener {
-
             val action = SearchFragmentDirections
                 .actionSearchFragmentToWeatherFragment(data)
-
             holder.view.findNavController().navigate(action)
-
         }
     }
 
