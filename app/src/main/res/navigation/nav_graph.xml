@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/searchFragment">
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="lol.kiyarash.weatherapp.view.SearchFragment"
+        android:label="SearchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_weatherFragment"
+            app:destination="@id/weatherFragment"
+            app:popUpToInclusive="false" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="lol.kiyarash.weatherapp.view.WeatherFragment"
+        android:label="WeatherFragment" >
+        <action
+            android:id="@+id/action_weatherFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:popUpToInclusive="false" />
+        <argument
+            android:name="cityName"
+            app:argType="string" />
+
+    </fragment>
+</navigation>

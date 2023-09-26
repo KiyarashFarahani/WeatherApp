@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Weather App</string>
+    <string name="local_time">Local Time: %1$s</string>
+</resources>
