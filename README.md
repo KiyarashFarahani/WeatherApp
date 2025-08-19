@@ -46,7 +46,7 @@ A modern, feature-rich Android weather application built with Kotlin that provid
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/WeatherApp.git
+   git clone https://github.com/KiyarashFarahani/WeatherApp.git
    cd WeatherApp
    ```
 
